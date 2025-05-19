@@ -1,0 +1,29 @@
+{
+    "flappy": {
+        "checkpoints": [
+            {
+                "steps": 11,
+                "file_path": "results\\t2\\flappy\\flappy-11.onnx",
+                "reward": 0.0,
+                "creation_time": 1747668760.4358478,
+                "auxillary_file_paths": [
+                    "results\\t2\\flappy\\flappy-11.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 11,
+            "file_path": "results\\t2\\flappy.onnx",
+            "reward": 0.0,
+            "creation_time": 1747668760.4358478,
+            "auxillary_file_paths": [
+                "results\\t2\\flappy\\flappy-11.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.0.1"
+    }
+}
