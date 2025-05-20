@@ -31,7 +31,6 @@ public class BirdAgent : Agent
     {
         rb.velocity = Vector2.zero;
         transform.position = new Vector3(-1f, 0f, 0f);
-        gameController.ResetEnvironment();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -65,6 +64,7 @@ public class BirdAgent : Agent
 
     public void die(){
         AddReward(-1f);
+        gameController.ResetEnvironment();
         EndEpisode();
         Debug.Log("aa!!!!");
     }

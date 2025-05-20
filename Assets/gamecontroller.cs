@@ -44,26 +44,27 @@ public class GameController : MonoBehaviour
 
     public void ResetEnvironment()
     {
-        // 기존 파이프 제거
-        foreach (GameObject pipe in pipes)
-        {
-            Destroy(pipe);
-            Debug.Log("pipedie");
-        }
-        pipes.Clear();
-        timer = 0f;
+        // // 기존 파이프 제거
+        // foreach (GameObject pipe in pipes)
+        // {
+        //     Destroy(pipe);
+        //     Debug.Log("pipedie");
+        // }
+        // pipes.Clear();
+        // timer = 0f;
 
-        // bird1 위치 및 속도 초기화
-        bird1.transform.position = birdStartPos;
-        Rigidbody2D rb = bird1.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
+        // // bird1 위치 및 속도 초기화
+        // bird1.transform.position = birdStartPos;
+        // Rigidbody2D rb = bird1.GetComponent<Rigidbody2D>();
+        // if (rb != null)
+        // {
+        //     rb.velocity = Vector2.zero;
+        //     rb.angularVelocity = 0f;
+        // }
 
-        Score.score = 0;
-
+        // Score.score = 0;
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public Vector2 GetNearestPipePosition(float agentX)
