@@ -8,6 +8,8 @@ public class birdjump : MonoBehaviour
     Rigidbody2D rb;
     public float jumpPower;
     // Start is called before the first frame update
+    public BirdAgent birdAgent;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,8 +35,6 @@ public class birdjump : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 파이프나 바닥에 충돌하면 에피소드 종료
-        SetReward(-1f);
-        EndEpisode();
-        Debug.Log("lk;jalakjsfdjlfk;adlkjfwe");
+        birdAgent.die();
     }
 }

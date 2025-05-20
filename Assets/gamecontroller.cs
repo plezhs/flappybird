@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    // private Rigidbody2D rb;
+    // [SerializeField] private GameObject bird1;
     [SerializeField] private GameObject pipePrefab;
     [SerializeField] private Transform pipeSpawnPoint;
     [SerializeField] private float pipeSpawnInterval = 2f;
@@ -11,6 +14,16 @@ public class GameController : MonoBehaviour
 
     private List<GameObject> pipes = new List<GameObject>();
     private float timer = 0f;
+
+    [SerializeField] private GameObject bird1;
+    private Vector3 birdStartPos;
+
+    private void Start()
+    {
+        birdStartPos = bird1.transform.position;
+    }
+
+    // rb = objectBird1.GetComponent<Rigidbody2D>();
 
     private void Update()
     {
@@ -35,9 +48,22 @@ public class GameController : MonoBehaviour
         foreach (GameObject pipe in pipes)
         {
             Destroy(pipe);
+            Debug.Log("pipedie");
         }
         pipes.Clear();
         timer = 0f;
+
+        // bird1 위치 및 속도 초기화
+        bird1.transform.position = birdStartPos;
+        Rigidbody2D rb = bird1.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
+        Score.score = 0;
+
     }
 
     public Vector2 GetNearestPipePosition(float agentX)

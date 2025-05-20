@@ -63,17 +63,14 @@ public class BirdAgent : Agent
         actionsOut.DiscreteActions.Array[0] = Input.GetKey(KeyCode.Space) ? 1 : 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 파이프나 바닥에 충돌하면 에피소드 종료
-        SetReward(-1f);
+    public void die(){
+        AddReward(-1f);
         EndEpisode();
-        Debug.Log("lk;jalakjsfdjlfk;adlkjfwe");
+        Debug.Log("aa!!!!");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // 파이프 사이를 통과하면 보상
+    public void score(){
         AddReward(1f);
+        Debug.Log("success!!!!");
     }
 }
