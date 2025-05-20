@@ -22,12 +22,19 @@ public class birdjump : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D ohter)
+    // private void OnCollisionEnter2D(Collision2D ohter)
+    // {
+    //     if(Score.score > Score.BestScore)
+    //     {
+    //         Score.BestScore = Score.score; 
+    //     }
+    //     SceneManager.LoadScene(1);
+    // }
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(Score.score > Score.BestScore)
-        {
-            Score.BestScore = Score.score; 
-        }
-        SceneManager.LoadScene(1);
+        // 파이프나 바닥에 충돌하면 에피소드 종료
+        SetReward(-1f);
+        EndEpisode();
+        Debug.Log("lk;jalakjsfdjlfk;adlkjfwe");
     }
 }
