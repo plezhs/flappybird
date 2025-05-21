@@ -8,6 +8,9 @@ public class BirdAgent : Agent
     private GameController gameController;
 
     [SerializeField] private float jumpForce = 4f;
+    [SerializeField] private GameObject pipePrefab;
+    [SerializeField] private float pipeMinY = -1f;
+    [SerializeField] private float pipeMaxY = 4.5f;
 
     private Rigidbody2D rb;
 
@@ -30,19 +33,25 @@ public class BirdAgent : Agent
     public override void OnEpisodeBegin()
     {
         rb.velocity = Vector2.zero;
-        transform.position = new Vector3(-1f, 0f, 0f);
+        transform.position = new Vector3(-1.95f, 0f, 0f);
+        pipePrefab.transform.position = new Vector3(4.01f, Random.Range(pipeMinY, pipeMaxY), 0f);
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // 에이전트의 y 위치와 y 속도
+        // 기존 관측 정보
         sensor.AddObservation(transform.position.y);
         sensor.AddObservation(rb.velocity.y);
 
-        // 가장 가까운 파이프의 위치 정보
+        // 가장 가까운 파이프의 위치
         Vector2 nearestPipePos = gameController.GetNearestPipePosition(transform.position.x);
-        sensor.AddObservation(nearestPipePos.x - transform.position.x); // x 거리
-        sensor.AddObservation(nearestPipePos.y - transform.position.y); // y 거리
+        sensor.AddObservation(nearestPipePos.x - transform.position.x);
+        sensor.AddObservation(nearestPipePos.y - transform.position.y);
+
+        // 가장 가까운 스코어 오브젝트의 위치
+        Vector2 nearestScoreZonePos = gameController.GetNearestScoreZonePosition(transform.position.x);
+        sensor.AddObservation(nearestScoreZonePos.x - transform.position.x);
+        sensor.AddObservation(nearestScoreZonePos.y - transform.position.y);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -51,6 +60,14 @@ public class BirdAgent : Agent
         if (action == 1)
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+        
+        float agentY = transform.position.y;
+        (float minY, float maxY) = gameController.GetNearestScoreUpYRange(transform.position.x);
+
+        if (agentY >= minY && agentY <= maxY)
+        {
+            AddReward(0.01f); // 범위 내에 있을 때 추가 보상
         }
 
         // 살아있는 동안 작은 보상
@@ -70,7 +87,7 @@ public class BirdAgent : Agent
     }
 
     public void score(){
-        AddReward(1f);
+        AddReward(0.1f);
         Debug.Log("success!!!!");
     }
 }

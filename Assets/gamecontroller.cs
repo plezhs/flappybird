@@ -84,4 +84,55 @@ public class GameController : MonoBehaviour
 
         return nearestPos;
     }
+
+    public Vector2 GetNearestScoreZonePosition(float agentX)
+    {
+        Vector2 nearestPos = Vector2.zero;
+        float minDistance = float.MaxValue;
+
+        foreach (GameObject pipe in pipes)
+        {
+            float distance = pipe.transform.position.x - agentX;
+            if (distance > 0 && distance < minDistance)
+            {
+                minDistance = distance;
+                Transform scoreZone = pipe.transform.Find("scoreup");
+                if (scoreZone != null)
+                {
+                    nearestPos = scoreZone.position;
+                }
+            }
+        }
+
+        return nearestPos;
+    }
+
+    public (float minY, float maxY) GetNearestScoreUpYRange(float agentX)
+    {
+        float minDistance = float.MaxValue;
+        float minY = 0f;
+        float maxY = 0f;
+
+        foreach (GameObject pipe in pipes)
+        {
+            float distance = pipe.transform.position.x - agentX;
+            if (distance > 0 && distance < minDistance)
+            {
+                minDistance = distance;
+                Transform scoreUp = pipe.transform.Find("scoreup");
+                if (scoreUp != null)
+                {
+                    BoxCollider2D collider = scoreUp.GetComponent<BoxCollider2D>();
+                    if (collider != null)
+                    {
+                        Bounds bounds = collider.bounds;
+                        minY = bounds.min.y;
+                        maxY = bounds.max.y;
+                    }
+                }
+            }
+        }
+
+        return (minY, maxY);
+    }
 }

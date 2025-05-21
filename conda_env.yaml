@@ -1,4 +1,4 @@
-name: flappy
+name: flappybird
 channels:
   - pytorch
   - nvidia
