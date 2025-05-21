@@ -1339,6 +1339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 434234466165121956, guid: 00c12b12bcc8c694892f6585aa5ec86d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.01
+      objectReference: {fileID: 0}
     - target: {fileID: 644911919040917941, guid: 00c12b12bcc8c694892f6585aa5ec86d, type: 3}
       propertyPath: m_TagString
       value: ScoreZone

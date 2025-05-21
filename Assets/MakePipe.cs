@@ -16,15 +16,15 @@ public class MakePipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > timeDiff )
-        {
-            GameObject newpipe = Instantiate(pipe);
-            newpipe.transform.position = new Vector3(4, Random.Range(-1.0f, 4.5f), 0);
-            timer = 0;
-            Destroy(newpipe, 10.0f); ;
+        // timer += Time.deltaTime;
+        // if (timer > timeDiff )
+        // {
+        //     GameObject newpipe = Instantiate(pipe);
+        //     newpipe.transform.position = new Vector3(4, Random.Range(-1.0f, 4.5f), 0);
+        //     timer = 0;
+        //     Destroy(newpipe, 10.0f); ;
             
-        }
+        // }
         
     }
 }
