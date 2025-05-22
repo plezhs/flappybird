@@ -673,6 +673,9 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 5000000
   jumpForce: 4
+  pipePrefab: {fileID: 0}
+  pipeMinY: -1
+  pipeMaxY: 4.5
   objectBird1: {fileID: 1552207831}
 --- !u!1 &1254522971
 GameObject:
@@ -1406,6 +1409,14 @@ PrefabInstance:
     - target: {fileID: 5497543123698527928, guid: 00c12b12bcc8c694892f6585aa5ec86d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448534240985939575, guid: 00c12b12bcc8c694892f6585aa5ec86d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448534240985939575, guid: 00c12b12bcc8c694892f6585aa5ec86d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

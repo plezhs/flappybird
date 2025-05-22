@@ -38,7 +38,8 @@ public class GameController : MonoBehaviour
     private void SpawnPipe()
     {
         float yPos = Random.Range(pipeMinY, pipeMaxY);
-        GameObject pipe = Instantiate(pipePrefab, new Vector3(4.01f, yPos, 0f), Quaternion.identity);
+        GameObject pipe = Instantiate(pipePrefab, new Vector3(0.22f, yPos, 0f), Quaternion.identity);
+        Destroy(pipe, 10f);
         pipes.Add(pipe);
     }
 

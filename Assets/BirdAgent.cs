@@ -34,7 +34,7 @@ public class BirdAgent : Agent
     {
         rb.velocity = Vector2.zero;
         transform.position = new Vector3(-1.95f, 0f, 0f);
-        pipePrefab.transform.position = new Vector3(4.01f, Random.Range(pipeMinY, pipeMaxY), 0f);
+        // pipePrefab.transform.position = new Vector3(4.01f, Random.Range(pipeMinY, pipeMaxY), 0f);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -47,11 +47,6 @@ public class BirdAgent : Agent
         Vector2 nearestPipePos = gameController.GetNearestPipePosition(transform.position.x);
         sensor.AddObservation(nearestPipePos.x - transform.position.x);
         sensor.AddObservation(nearestPipePos.y - transform.position.y);
-
-        // 가장 가까운 스코어 오브젝트의 위치
-        Vector2 nearestScoreZonePos = gameController.GetNearestScoreZonePosition(transform.position.x);
-        sensor.AddObservation(nearestScoreZonePos.x - transform.position.x);
-        sensor.AddObservation(nearestScoreZonePos.y - transform.position.y);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -68,6 +63,10 @@ public class BirdAgent : Agent
         if (agentY >= minY && agentY <= maxY)
         {
             AddReward(0.01f); // 범위 내에 있을 때 추가 보상
+            Debug.Log("detected");
+        }else{
+            AddReward(-0.01f);
+            Debug.Log("not detected");
         }
 
         // 살아있는 동안 작은 보상
@@ -87,7 +86,7 @@ public class BirdAgent : Agent
     }
 
     public void score(){
-        AddReward(0.1f);
+        AddReward(1f);
         Debug.Log("success!!!!");
     }
 }
