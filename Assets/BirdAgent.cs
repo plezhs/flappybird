@@ -14,6 +14,8 @@ public class BirdAgent : Agent
 
     private Rigidbody2D rb;
 
+    private bool isJumping = false;
+
     // object-bird1 GameObject를 인스펙터에서 할당하거나, Start()에서 찾을 수 있습니다.
     public GameObject objectBird1;
 
@@ -45,8 +47,11 @@ public class BirdAgent : Agent
 
         // 가장 가까운 파이프의 위치
         Vector2 nearestPipePos = gameController.GetNearestPipePosition(transform.position.x);
-        sensor.AddObservation(nearestPipePos.x - transform.position.x);
-        sensor.AddObservation(nearestPipePos.y - transform.position.y);
+        sensor.AddObservation(nearestPipePos.x);
+        sensor.AddObservation(nearestPipePos.y);
+
+        // 점프 여부
+        sensor.AddObservation(isJumping ? 1f : -1f);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -54,7 +59,10 @@ public class BirdAgent : Agent
         int action = actions.DiscreteActions[0]; // 점프 여부 확인
         if (action == 1)    // 점프 버튼 눌렀으면
         {
-            rb.velocity = Vector2.up * jumpForce; // 점프
+            rb.velocity = Vector2.up * jumpForce;
+            isJumping = true;
+        }else{
+            isJumping = false;            
         }
         
         float agentY = transform.position.y; //새 높이 가져옴
