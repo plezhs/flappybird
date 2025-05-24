@@ -51,22 +51,22 @@ public class BirdAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        int action = actions.DiscreteActions[0];
-        if (action == 1)
+        int action = actions.DiscreteActions[0]; // 점프 여부 확인
+        if (action == 1)    // 점프 버튼 눌렀으면
         {
-            rb.velocity = Vector2.up * jumpForce;
+            rb.velocity = Vector2.up * jumpForce; // 점프
         }
         
-        float agentY = transform.position.y;
-        (float minY, float maxY) = gameController.GetNearestScoreUpYRange(transform.position.x);
+        float agentY = transform.position.y; //새 높이 가져옴
+        (float minY, float maxY) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
 
-        if (agentY >= minY && agentY <= maxY)
+        if (agentY >= minY && agentY <= maxY) //새 높이가 점수 인정 부분 높이 범위 내에 있으면
         {
             AddReward(0.01f); // 범위 내에 있을 때 추가 보상
             Debug.Log("detected");
         }else{
-            AddReward(-0.01f);
-            Debug.Log("not detected");
+            AddReward(-0.01f); // 범위 밖에 있을 때 보상 감소
+            // Debug.Log("not detected");
         }
 
         // 살아있는 동안 작은 보상
@@ -82,11 +82,11 @@ public class BirdAgent : Agent
         AddReward(-1f);
         gameController.ResetEnvironment();
         EndEpisode();
-        Debug.Log("aa!!!!");
+        // Debug.Log("aa!!!!");
     }
 
     public void score(){
         AddReward(1f);
-        Debug.Log("success!!!!");
+        // Debug.Log("success!!!!");
     }
 }

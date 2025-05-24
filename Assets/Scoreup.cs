@@ -7,10 +7,18 @@ using UnityEngine;
 public class Scoreup : MonoBehaviour
 {
     public BirdAgent birdAgent;
-
+    public GameController gameController;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Score.score+=1;
-        birdAgent.score();
+        if(other.CompareTag("Bird"))
+        {
+            Score.score+=1;
+            birdAgent.score();
+        }else if(other.CompareTag("det"))
+        {
+            gameController.setScoreUpYRange(other.transform.position.y, other.transform.position.y + 2.513688f);
+            Debug.Log("collided");
+        }
     }
 }
