@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private float pipeSpawnInterval = 2f;
     [SerializeField] private float pipeMinY = -1f;
     [SerializeField] private float pipeMaxY = 4.5f;
-    public float scoreZoneMinY = 0f;
-    public float scoreZoneMaxY = 0f;
+    public float scoreZoneMinY = -0.05f;
+    public float scoreZoneMaxY = -0.05f + 1.513688f;
 
     private List<GameObject> pipes = new List<GameObject>();
     private float timer = 0f;
@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
     {
         float yPos = Random.Range(pipeMinY, pipeMaxY);
         GameObject pipe = Instantiate(pipePrefab, new Vector3(0.22f, yPos, 0f), Quaternion.identity);
+        
         Destroy(pipe, 10f);
         pipes.Add(pipe);
     }

@@ -67,14 +67,16 @@ public class BirdAgent : Agent
         
         float agentY = transform.position.y; //새 높이 가져옴
         (float minY, float maxY) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
-
+        Debug.Log("minY: " + minY + " maxY: " + maxY);
+        Debug.Log("agentY: " + agentY);
+        
         if (agentY >= minY && agentY <= maxY) //새 높이가 점수 인정 부분 높이 범위 내에 있으면
         {
             AddReward(0.01f); // 범위 내에 있을 때 추가 보상
             Debug.Log("detected");
         }else{
             AddReward(-0.01f); // 범위 밖에 있을 때 보상 감소
-            // Debug.Log("not detected");
+            Debug.Log("not detected");
         }
 
         // 살아있는 동안 작은 보상
