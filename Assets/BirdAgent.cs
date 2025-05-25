@@ -65,7 +65,7 @@ public class BirdAgent : Agent
             isJumping = false;            
         }
         
-        float agentY = transform.position.y; //새 높이 가져옴
+        float agentY = objectBird1.transform.position.y; //새 높이 가져옴
         (float minY, float maxY) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
         Debug.Log("minY: " + minY + " maxY: " + maxY);
         Debug.Log("agentY: " + agentY);

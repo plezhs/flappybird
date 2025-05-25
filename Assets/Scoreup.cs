@@ -17,8 +17,11 @@ public class Scoreup : MonoBehaviour
             birdAgent.score();
         }else if(other.CompareTag("det"))
         {
-            gameController.setScoreUpYRange(other.transform.position.y+1f, other.transform.position.y + 1.513688f);
-            Debug.Log("collided");
+            gameController.setScoreUpYRange(0, 0);
+            gameController.setScoreUpYRange(transform.position.y, transform.position.y + 2.513688f);
+            // Debug.Log(transform.position.y + " | " + transform.position.y + 2.513688f);
+            // Debug.Log(transform.parent.name + " | " + transform.name);
+            // Debug.Log(transform.localPosition.y);
         }
     }
 }
