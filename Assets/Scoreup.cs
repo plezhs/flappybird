@@ -8,6 +8,7 @@ public class Scoreup : MonoBehaviour
 {
     public BirdAgent birdAgent;
     public GameController gameController;
+    public GameObject square;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,7 +19,7 @@ public class Scoreup : MonoBehaviour
         }else if(other.CompareTag("det"))
         {
             gameController.setScoreUpYRange(0, 0);
-            gameController.setScoreUpYRange(transform.position.y, transform.position.y + 2.513688f);
+            gameController.setScoreUpYRange(square.transform.position.y, square.transform.position.y + 2.513688f);
             // Debug.Log(transform.position.y + " | " + transform.position.y + 2.513688f);
             // Debug.Log(transform.parent.name + " | " + transform.name);
             // Debug.Log(transform.localPosition.y);

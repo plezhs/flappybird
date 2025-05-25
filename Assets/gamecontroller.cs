@@ -71,23 +71,24 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public Vector2 GetNearestPipePosition(float agentX)
-    {
-        Vector2 nearestPos = Vector2.zero;
-        float minDistance = float.MaxValue;
+    // public Vector2 GetNearestPipePosition(float agentX)
+    // {
+    //     Vector2 nearestPos = Vector2.zero;
+    //     float minDistance = float.MaxValue;
 
-        foreach (GameObject pipe in pipes)
-        {
-            float distance = pipe.transform.position.x - agentX;
-            if (distance > 0 && distance < minDistance)
-            {
-                minDistance = distance;
-                nearestPos = pipe.transform.position;
-            }
-        }
+    //     foreach (GameObject pipe in pipes)
+    //     {
+    //         float distance = pipe.transform.position.x - agentX;
+    //         if (distance > 0 && distance < minDistance)
+    //         {
+    //             minDistance = distance;
+    //             nearestPos = pipe.transform.position;
+    //         }
+    //     }
 
-        return nearestPos;
-    }
+    //     return nearestPos;
+    // }
+    
     public (float, float) getScoreUpYRange()
     {
         return (scoreZoneMinY, scoreZoneMaxY);

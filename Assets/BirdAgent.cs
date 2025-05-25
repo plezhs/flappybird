@@ -46,9 +46,15 @@ public class BirdAgent : Agent
         sensor.AddObservation(rb.velocity.y);
 
         // 가장 가까운 파이프의 위치
-        Vector2 nearestPipePos = gameController.GetNearestPipePosition(transform.position.x);
-        sensor.AddObservation(nearestPipePos.x);
-        sensor.AddObservation(nearestPipePos.y);
+        // Vector2 nearestPipePos = gameController.GetNearestPipePosition(transform.position.x);
+        // sensor.AddObservation(nearestPipePos.x);
+        // sensor.AddObservation(nearestPipePos.y);
+        
+        // 점수 인정 부분 높이 범위
+        float minY, maxY;
+        (minY, maxY) = gameController.getScoreUpYRange();
+        sensor.AddObservation(minY);
+        sensor.AddObservation(maxY);
 
         // 점프 여부
         sensor.AddObservation(isJumping ? 1f : -1f);
@@ -67,8 +73,8 @@ public class BirdAgent : Agent
         
         float agentY = objectBird1.transform.position.y; //새 높이 가져옴
         (float minY, float maxY) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
-        Debug.Log("minY: " + minY + " maxY: " + maxY);
-        Debug.Log("agentY: " + agentY);
+        // Debug.Log("minY: " + minY + " maxY: " + maxY);
+        // Debug.Log("agentY: " + agentY);
         
         if (agentY >= minY && agentY <= maxY) //새 높이가 점수 인정 부분 높이 범위 내에 있으면
         {
