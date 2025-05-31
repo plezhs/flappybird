@@ -67,6 +67,7 @@ public class BirdAgent : Agent
         {
             rb.velocity = Vector2.up * jumpForce;
             isJumping = true;
+            AddReward(-0.005f);
         }else{
             isJumping = false;            
         }
@@ -78,15 +79,15 @@ public class BirdAgent : Agent
         
         if (agentY >= minY && agentY <= maxY) //새 높이가 점수 인정 부분 높이 범위 내에 있으면
         {
-            AddReward(0.01f); // 범위 내에 있을 때 추가 보상
+            AddReward(0.05f); // 범위 내에 있을 때 추가 보상
             Debug.Log("detected");
         }else{
-            AddReward(-0.01f); // 범위 밖에 있을 때 보상 감소
+            AddReward(-0.02f); // 범위 밖에 있을 때 보상 감소
             Debug.Log("not detected");
         }
 
         // 살아있는 동안 작은 보상
-        AddReward(0.01f);
+        AddReward(0.001f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -95,14 +96,14 @@ public class BirdAgent : Agent
     }
 
     public void die(){
-        AddReward(-1f);
+        AddReward(-1.0f);
         gameController.ResetEnvironment();
         EndEpisode();
         // Debug.Log("aa!!!!");
     }
 
     public void score(){
-        AddReward(1f);
+        AddReward(1.0f);
         // Debug.Log("success!!!!");
     }
 }
