@@ -82,12 +82,12 @@ public class BirdAgent : Agent
             AddReward(0.05f); // 범위 내에 있을 때 추가 보상
             Debug.Log("detected");
         }else{
-            AddReward(-0.02f); // 범위 밖에 있을 때 보상 감소
+            AddReward(-0.05f); // 범위 밖에 있을 때 보상 감소
             Debug.Log("not detected");
         }
 
         // 살아있는 동안 작은 보상
-        AddReward(0.001f);
+        // AddReward(0.001f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
