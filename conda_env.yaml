@@ -1,4 +1,4 @@
-name: flappybird
+name: tq
 channels:
   - pytorch
   - nvidia
