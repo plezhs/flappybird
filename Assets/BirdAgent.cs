@@ -51,13 +51,15 @@ public class BirdAgent : Agent
         // sensor.AddObservation(nearestPipePos.y);
         
         // 점수 인정 부분 높이 범위
-        float minY, maxY;
-        (minY, maxY) = gameController.getScoreUpYRange();
-        sensor.AddObservation(minY);
-        sensor.AddObservation(maxY);
-
+        float minY, maxY, pibotX;
+        (minY, maxY, pibotX) = gameController.getScoreUpYRange();
+        float avgY = (minY + maxY) / 2;
+        //높이차이
+        sensor.AddObservation(avgY-objectBird1.transform.position.y);
+        //파이프와의 거리
+        sensor.AddObservation(pibotX-objectBird1.transform.position.x);
         // 점프 여부
-        sensor.AddObservation(isJumping ? 1f : -1f);
+        // sensor.AddObservation(isJumping ? 1f : -1f);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -73,7 +75,7 @@ public class BirdAgent : Agent
         }
         
         float agentY = objectBird1.transform.position.y; //새 높이 가져옴
-        (float minY, float maxY) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
+        (float minY, float maxY, float pibotX) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
         // Debug.Log("minY: " + minY + " maxY: " + maxY);
         // Debug.Log("agentY: " + agentY);
         
@@ -103,7 +105,11 @@ public class BirdAgent : Agent
     }
 
     public void score(){
-        AddReward(1.0f);
+        AddReward(0.3f);
+        // Debug.Log("success!!!!");
+    }
+    public void scoreext(){
+        AddReward(0.7f);
         // Debug.Log("success!!!!");
     }
 }

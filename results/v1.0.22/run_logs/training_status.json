@@ -1,0 +1,56 @@
+{
+    "FlappyBird": {
+        "checkpoints": [
+            {
+                "steps": 499884,
+                "file_path": "results\\v1.0.22\\FlappyBird\\FlappyBird-499884.onnx",
+                "reward": 234.81642417237163,
+                "creation_time": 1749244715.7241755,
+                "auxillary_file_paths": [
+                    "results\\v1.0.22\\FlappyBird\\FlappyBird-499884.pt"
+                ]
+            },
+            {
+                "steps": 999997,
+                "file_path": "results\\v1.0.22\\FlappyBird\\FlappyBird-999997.onnx",
+                "reward": 80.213376837405,
+                "creation_time": 1749248189.8766801,
+                "auxillary_file_paths": [
+                    "results\\v1.0.22\\FlappyBird\\FlappyBird-999997.pt"
+                ]
+            },
+            {
+                "steps": 1499965,
+                "file_path": "results\\v1.0.22\\FlappyBird\\FlappyBird-1499965.onnx",
+                "reward": null,
+                "creation_time": 1749251717.834638,
+                "auxillary_file_paths": [
+                    "results\\v1.0.22\\FlappyBird\\FlappyBird-1499965.pt"
+                ]
+            },
+            {
+                "steps": 1616864,
+                "file_path": "results\\v1.0.22\\FlappyBird\\FlappyBird-1616864.onnx",
+                "reward": 77.54399840086698,
+                "creation_time": 1749252526.388194,
+                "auxillary_file_paths": [
+                    "results\\v1.0.22\\FlappyBird\\FlappyBird-1616864.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1616864,
+            "file_path": "results\\v1.0.22\\FlappyBird.onnx",
+            "reward": 77.54399840086698,
+            "creation_time": 1749252526.388194,
+            "auxillary_file_paths": [
+                "results\\v1.0.22\\FlappyBird\\FlappyBird-1616864.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.0.1"
+    }
+}

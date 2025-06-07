@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float pipeMaxY = 4.5f;
     public float scoreZoneMinY = 0f;
     public float scoreZoneMaxY = 2.513688f;
+    public float scoreZonePibotX = 0.22f;
 
     private List<GameObject> pipes = new List<GameObject>();
     private float timer = 0f;
@@ -89,13 +90,17 @@ public class GameController : MonoBehaviour
     //     return nearestPos;
     // }
     
-    public (float, float) getScoreUpYRange()
+    public (float, float, float) getScoreUpYRange()
     {
-        return (scoreZoneMinY, scoreZoneMaxY);
+        return (scoreZoneMinY, scoreZoneMaxY, scoreZonePibotX);
     }
     public void setScoreUpYRange(float minY, float maxY)
     {
         scoreZoneMinY = minY;
         scoreZoneMaxY = maxY;
+    }
+    public void setpibotX(float pibotX)
+    {
+        scoreZonePibotX = pibotX;
     }
 }
