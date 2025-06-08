@@ -24,8 +24,8 @@ public class pipespawner : MonoBehaviour
     {
         if(!isSpawned){
             SpawnPipe();
-            GameObject sq = pipes[pipes.Count - 1].transform.Find("square").gameObject;
-            gameController.setScoreUpYRange(sq.transform.position.y, sq.transform.position.y + 2.513688f);
+            // GameObject sq = pipes[pipes.Count - 1].transform.Find("square").gameObject;
+            // gameController.setScoreUpYRange(sq.transform.position.y, sq.transform.position.y + 2.513688f);
             isSpawned = true;
         }else{
             timer += Time.deltaTime;

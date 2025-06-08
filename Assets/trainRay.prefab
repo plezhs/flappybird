@@ -202,9 +202,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6540864097881383991}
   - component: {fileID: 699384151009855236}
+  - component: {fileID: 5511420651961471245}
   m_Layer: 0
   m_Name: back
-  m_TagString: Ground
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 2088663657896176880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: -0.03, z: 0.041379206}
+  m_LocalPosition: {x: -3, y: -0.03, z: 0.041379206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -269,6 +270,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &5511420651961471245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088663657896176880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29ec3b7b5cb1f848a22c27179d8acb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdAgent: {fileID: 5662254896825001734}
 --- !u!1 &2232316253039487136
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,10 +660,11 @@ MonoBehaviour:
   m_DetectableTags:
   - Pipe
   - Ground
+  - Back
   m_RaysPerDirection: 15
   m_MaxRayDegrees: 90
   m_SphereCastRadius: 0.01
-  m_RayLength: 10
+  m_RayLength: 8
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -967,7 +982,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.2, y: 0.1}
+  m_Size: {x: 20, y: 0.1}
   m_EdgeRadius: 0
 --- !u!1 &7790685397081218490
 GameObject:
@@ -1066,11 +1081,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed88ab1592d693e4b8befc3da8bf5aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipePrefab: {fileID: 7940122236402300258, guid: 98b009b012dabf94aaf0daed1fb9adad, type: 3}
+  pipePrefab: {fileID: 3227418715808104733, guid: c3d742eba95c82f43b62eae62b49a745, type: 3}
   pipeMinY: -1
   pipeMaxY: 4.5
   pipeSpawnInterval: 3.5
   spawnPipeX: {fileID: 7790685397081218490}
+  gameController: {fileID: 1880558362069325482}
 --- !u!1 &9129412296361909537
 GameObject:
   m_ObjectHideFlags: 0

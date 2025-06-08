@@ -21,4 +21,12 @@ public class Move : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Back"))
+        {
+            des();
+        }
+    }
 }

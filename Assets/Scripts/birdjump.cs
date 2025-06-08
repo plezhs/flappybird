@@ -42,17 +42,17 @@ public class birdjump : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("ScoreZone"))
-        {
-            Score.score+=1;
-            birdAgent.score();
-        }
+        // if(other.CompareTag("ScoreZone"))
+        // {
+        //     Score.score+=1;
+        //     birdAgent.score();
+        // }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if(other.CompareTag("ScoreZone"))
         {
-            birdAgent.scoreext();
+            // birdAgent.scoreext();
         }
     }
 

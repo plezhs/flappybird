@@ -40,20 +40,20 @@ public class BirdAgentRay : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // 기존 관측 정보
-        sensor.AddObservation(transform.localPosition.y);
-        sensor.AddObservation(rb.velocity.y);
+        // // 기존 관측 정보
+        // sensor.AddObservation(transform.localPosition.y);
+        // sensor.AddObservation(rb.velocity.y);
         
-        // 점수 인정 부분 높이 범위
-        float minY, maxY, pibotX;
-        (minY, maxY, pibotX) = gameController.getScoreUpYRange();
-        float avgY = (minY + maxY) / 2;
-        //높이차이
-        sensor.AddObservation(avgY-objectBird1.transform.position.y);
-        //파이프와의 거리
-        sensor.AddObservation(pibotX-objectBird1.transform.position.x);
-        // 점프 여부
-        // sensor.AddObservation(isJumping ? 1f : -1f);
+        // // 점수 인정 부분 높이 범위
+        // float minY, maxY, pibotX;
+        // (minY, maxY, pibotX) = gameController.getScoreUpYRange();
+        // float avgY = (minY + maxY) / 2;
+        // //높이차이
+        // sensor.AddObservation(avgY-objectBird1.transform.position.y);
+        // //파이프와의 거리
+        // sensor.AddObservation(pibotX-objectBird1.transform.position.x);
+        // // 점프 여부
+        // // sensor.AddObservation(isJumping ? 1f : -1f);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -68,19 +68,19 @@ public class BirdAgentRay : Agent
             isJumping = false;
         }
         
-        float agentY = objectBird1.transform.position.y; //새 높이 가져옴
-        (float minY, float maxY, float pibotX) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
-        // Debug.Log("minY: " + minY + " maxY: " + maxY);
-        // Debug.Log("agentY: " + agentY);
+        // float agentY = objectBird1.transform.position.y; //새 높이 가져옴
+        // (float minY, float maxY, float pibotX) = gameController.getScoreUpYRange(); //점수 인정 부분 높이 범위 가져옴
+        // // Debug.Log("minY: " + minY + " maxY: " + maxY);
+        // // Debug.Log("agentY: " + agentY);
         
-        if (agentY >= minY && agentY <= maxY) //새 높이가 점수 인정 부분 높이 범위 내에 있으면
-        {
-            AddReward(0.05f); // 범위 내에 있을 때 추가 보상
-            Debug.Log("detected | " + objectBird1.transform.parent.name);
-        }else{
-            AddReward(-0.05f); // 범위 밖에 있을 때 보상 감소
-            Debug.Log("not detected | " + objectBird1.transform.parent.name);
-        }
+        // if (agentY >= minY && agentY <= maxY) //새 높이가 점수 인정 부분 높이 범위 내에 있으면
+        // {
+        //     AddReward(0.05f); // 범위 내에 있을 때 추가 보상
+        //     Debug.Log("detected | " + objectBird1.transform.parent.name);
+        // }else{
+        //     AddReward(-0.05f); // 범위 밖에 있을 때 보상 감소
+        //     Debug.Log("not detected | " + objectBird1.transform.parent.name);
+        // }
 
         // 살아있는 동안 작은 보상
         // AddReward(0.001f);
