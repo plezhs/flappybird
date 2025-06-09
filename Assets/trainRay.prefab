@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 6540864097881383991}
   - component: {fileID: 699384151009855236}
   - component: {fileID: 5511420651961471245}
+  - component: {fileID: 4910801866390283337}
   m_Layer: 0
   m_Name: back
   m_TagString: Back
@@ -283,6 +284,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdAgent: {fileID: 5662254896825001734}
+--- !u!50 &4910801866390283337
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088663657896176880}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2232316253039487136
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 4
-  birdAgent: {fileID: 0}
+  birdAgent: {fileID: 5662254896825001734}
   pipespawner: {fileID: 2271592619310627552}
   gameController: {fileID: 1880558362069325482}
 --- !u!1 &3306841434360939759
@@ -499,9 +527,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5327497916404833528}
   - {fileID: 1913818255092549078}
   - {fileID: 3998946793498419038}
-  - {fileID: 5327497916404833528}
   - {fileID: 757521263182259215}
   - {fileID: 6373081284351906912}
   - {fileID: 8978336726778792908}
@@ -662,7 +690,7 @@ MonoBehaviour:
   - Ground
   - Back
   m_RaysPerDirection: 15
-  m_MaxRayDegrees: 90
+  m_MaxRayDegrees: 80
   m_SphereCastRadius: 0.01
   m_RayLength: 8
   m_RayLayerMask:

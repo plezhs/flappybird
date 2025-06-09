@@ -20,9 +20,20 @@ public class pipedie : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("Collision detected | " + other.gameObject.name);
         if(other.gameObject.CompareTag("Pipe"))
         {
             birdAgent.score();
+            Score.score++;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        Debug.Log("Collision exit | " + other.gameObject.name);
+        if(other.gameObject.CompareTag("Pipe"))
+        {
+            other.gameObject.transform.parent.GetComponent<Move>().des();
         }
     }
 }

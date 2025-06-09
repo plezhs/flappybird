@@ -8,7 +8,7 @@ public class birdjump : MonoBehaviour
     Rigidbody2D rb;
     public float jumpPower;
     // Start is called before the first frame update
-    public BirdAgent birdAgent;
+    [SerializeField] private BirdAgentRay birdAgent;
     public pipespawner pipespawner;
     public GameController gameController;
 
