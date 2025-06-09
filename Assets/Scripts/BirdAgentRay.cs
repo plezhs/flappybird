@@ -17,13 +17,13 @@ public class BirdAgentRay : Agent
     private bool isJumping = false;
 
     // object-bird1 GameObject를 인스펙터에서 할당하거나, Start()에서 찾을 수 있습니다.
-    public GameObject objectBird1;
+    // public GameObject objectBird1;
 
     public override void Initialize()
     {
-        if (objectBird1 != null)
+        if (this.gameObject != null)
         {
-            rb = objectBird1.GetComponent<Rigidbody2D>();
+            rb = this.gameObject.GetComponent<Rigidbody2D>();
         }
         else
         {
@@ -83,7 +83,7 @@ public class BirdAgentRay : Agent
         // }
 
         // 살아있는 동안 작은 보상
-        // AddReward(0.001f);
+        AddReward(0.001f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -98,11 +98,7 @@ public class BirdAgentRay : Agent
     }
 
     public void score(){
-        AddReward(0.3f);
-        // Debug.Log("success!!!!");
-    }
-    public void scoreext(){
-        AddReward(0.7f);
+        AddReward(1.0f);
         // Debug.Log("success!!!!");
     }
 }

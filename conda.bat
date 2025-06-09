@@ -1,0 +1,1 @@
+call C:/Users/hyeok/anaconda3/Scripts/activate.bat flappybird

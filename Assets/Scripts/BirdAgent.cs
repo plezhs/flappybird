@@ -97,8 +97,13 @@ public class BirdAgent : Agent
         // Debug.Log("aa!!!!");
     }
 
+    
     public void score(){
-        AddReward(1.0f);
+        AddReward(0.3f);
+        // Debug.Log("success!!!!");
+    }
+    public void scoreext(){
+        AddReward(0.7f);
         // Debug.Log("success!!!!");
     }
 }
