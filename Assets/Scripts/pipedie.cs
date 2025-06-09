@@ -21,7 +21,7 @@ public class pipedie : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Collision detected | " + other.gameObject.name);
-        if(other.gameObject.CompareTag("Pipe"))
+        if(other.gameObject.CompareTag("sq"))
         {
             birdAgent.score();
             Score.score++;
