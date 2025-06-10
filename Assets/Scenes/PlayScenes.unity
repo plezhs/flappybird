@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2441969021811259268, guid: 826cbb412dbe4c34fb4cdb8596dd784e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 06b959b52ed99c840b759a92b60bf80d, type: 3}
     - target: {fileID: 2786876833082259718, guid: 826cbb412dbe4c34fb4cdb8596dd784e, type: 3}
       propertyPath: pipeMaxY
       value: 4
@@ -338,6 +342,10 @@ PrefabInstance:
     - target: {fileID: 5516501391108736862, guid: 826cbb412dbe4c34fb4cdb8596dd784e, type: 3}
       propertyPath: m_Name
       value: trainRay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388191172465339429, guid: 826cbb412dbe4c34fb4cdb8596dd784e, type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

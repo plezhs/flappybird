@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipePrefab: {fileID: 3227418715808104733, guid: c3d742eba95c82f43b62eae62b49a745, type: 3}
   pipeMinY: -1
-  pipeMaxY: 4.25
+  pipeMaxY: 4
   pipeSpawnInterval: 3.5
   spawnPipeX: {fileID: 1844923147324184905}
   gameController: {fileID: 5681759616703376808}
