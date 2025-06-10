@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2786876833082259718, guid: 826cbb412dbe4c34fb4cdb8596dd784e, type: 3}
+      propertyPath: pipeMaxY
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5516501391108736862, guid: 826cbb412dbe4c34fb4cdb8596dd784e, type: 3}
       propertyPath: m_Name
       value: trainRay
