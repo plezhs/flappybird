@@ -67,6 +67,6 @@ public class birdjump : MonoBehaviour
 
         rb.rotation = 0f;
 
-        Score.score = 0;
+        Score.scoreTable[this.transform.parent.name] = 0;
     }
 }
